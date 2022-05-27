@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* The font properties is meant to be within the root selector. I learnt this mid-way into writing this CSS. By default, the rem for the entire document is calculated using 16px instead of 14px (my body font size).*/
+
+:root {
+    --BG-Color: #0c172a;
+    --card-color: #14273f;
+    --cyan-color: #00fff7;
+    --image-hover-color:    hsl(178, 100%, 50%, 50%);
+    --white-color: #fff;
+    --copy-color: #859bbd;
+    --timer-color: #94ade5;
+    --line-color: hsl(215, 32%, 27%);
+}
+
+body {
+    font: 14px "Outfit", sans-serif;
+    font-weight: 300;
+    background-color: var(--BG-Color);
+    color: var(--white-color); 
+    display: flex;
+    flex-direction: column;  
+    align-items: center; 
+    justify-content: center;
+    padding: 1.1rem;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+/* The CSS container for every element on the page */
+
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: center;    
+    width: 266.25px;
+    height: 459px;
+    background-color: var(--card-color);
+    padding: 1.1rem;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px 0 rgba(12,23,42,0.9), 0px 6px 18px 3px rgba(12,23,42,0.96), 0px 5px 2px 0 rgba(12,23,42,0.5);
+}
+
+
+/* CSS for the NFT image section. 
+.image-wrapper is for the main nft image
+.image-wrapper div is used to the properties for the hover effects  */
+
+.image-wrapper img {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+.image-wrapper div {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: var(--image-hover-color);
+    border-radius: 8px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-wrapper div:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.image-wrapper div img {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+}    
+
+
+/* CSS for the nft name. The H2 in the html */
+
+.nft-name {
+    font-size: 1.05rem;
+    color: var(--white-color);
+    font-weight: 600;
+    margin: 0.9rem 0;
+}
+
+.nft-name:hover {
+    cursor: pointer;
+    color: var(--cyan-color);
+    filter: brightness(150%);
+}
+
+
+/* CSS for the nft descriptions. */
+
+.nft-description {
+    color: var(--copy-color);
+    line-height: 18px;
+    font-weight: 400;
+    overflow-wrap: wrap;
+}
+
+
+/* CSS for the nft price and timer section */
+
+.price-timer-flex li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.card-wrapper ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--copy-color);
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--line-color);
+}
+
+.price-timer-flex img {
+    padding-right: 0.35rem;
+}
+
+.price-timer-flex li:first-child {
+    color: var(--cyan-color);
+    font-weight: 600;
+}
+
+
+/* CSS for the creator avatar and name */
+
+.creator-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 11.5px;
+    color: var(--copy-color);
+    margin-top: 0.9rem;
+}
+
+.creator-avatar img {
+    width: 1.5rem;
+    border: 1.3px solid var(--white-color);
+    border-radius: 50px;
+    margin-right: 0.6rem;
+    text-decoration: none;
+}
+
+.creator-avatar span {
+    color: var(--white-color);    
+    font-weight: 400;
+}
+
+.creator-avatar span:hover {
+    color: var(--cyan-color);
+    cursor: pointer;
+    filter: brightness(150%);
+}
+
+
+
+/* I'm playing with page responsiveness. Not that I've studied the top in depth, so warning: I don't know what I'm doing. */
+@media only screen and (max-width: 820px) {
+    .card-wrapper {
+        transform: scale(1.55);
+    }
+}
+
+@media only screen and (max-width: 912px) {
+    .card-wrapper {
+        transform: scale(1.65);
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .card-wrapper {
+        transform: scale(0.9);
+    }
+}
+
+@media only screen and (max-width: 412px) {
+    .card-wrapper {
+        transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .card-wrapper {
+        transform: scale(0.9);
+    }
+}
+
+@media (min-width: 500px) {
+    .container {
+      width: 450px;
+      margin: 0 auto 1rem;
+    }
+  }
